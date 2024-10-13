@@ -1,6 +1,6 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android">
     <application
-        android:label="open_whats_app_numbers"
+        android:label="Open Whats App Numbers"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
         <activity
