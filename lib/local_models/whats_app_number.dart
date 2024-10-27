@@ -5,7 +5,11 @@ class WhatsAppNumber {
   @Id()
   int id;
   String number;
-  String message;
+  String description;
 
-  WhatsAppNumber({this.id = 0, required this.number, required this.message});
+  WhatsAppNumber({
+    this.id = 0,
+    required this.number,
+    required this.description,
+  });
 }

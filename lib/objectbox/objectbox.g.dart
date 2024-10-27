@@ -22,7 +22,7 @@ final _entities = <obx_int.ModelEntity>[
   obx_int.ModelEntity(
       id: const obx_int.IdUid(1, 4743736946193893955),
       name: 'WhatsAppNumber',
-      lastPropertyId: const obx_int.IdUid(3, 2252692688771691517),
+      lastPropertyId: const obx_int.IdUid(4, 4232889442287627977),
       flags: 0,
       properties: <obx_int.ModelProperty>[
         obx_int.ModelProperty(
@@ -36,8 +36,8 @@ final _entities = <obx_int.ModelEntity>[
             type: 9,
             flags: 0),
         obx_int.ModelProperty(
-            id: const obx_int.IdUid(3, 2252692688771691517),
-            name: 'message',
+            id: const obx_int.IdUid(4, 4232889442287627977),
+            name: 'description',
             type: 9,
             flags: 0)
       ],
@@ -86,7 +86,7 @@ obx_int.ModelDefinition getObjectBoxModel() {
       lastSequenceId: const obx_int.IdUid(0, 0),
       retiredEntityUids: const [],
       retiredIndexUids: const [],
-      retiredPropertyUids: const [],
+      retiredPropertyUids: const [2252692688771691517],
       retiredRelationUids: const [],
       modelVersion: 5,
       modelVersionParserMinimum: 5,
@@ -103,11 +103,11 @@ obx_int.ModelDefinition getObjectBoxModel() {
         },
         objectToFB: (WhatsAppNumber object, fb.Builder fbb) {
           final numberOffset = fbb.writeString(object.number);
-          final messageOffset = fbb.writeString(object.message);
-          fbb.startTable(4);
+          final descriptionOffset = fbb.writeString(object.description);
+          fbb.startTable(5);
           fbb.addInt64(0, object.id);
           fbb.addOffset(1, numberOffset);
-          fbb.addOffset(2, messageOffset);
+          fbb.addOffset(3, descriptionOffset);
           fbb.finish(fbb.endTable());
           return object.id;
         },
@@ -118,10 +118,11 @@ obx_int.ModelDefinition getObjectBoxModel() {
               const fb.Int64Reader().vTableGet(buffer, rootOffset, 4, 0);
           final numberParam = const fb.StringReader(asciiOptimization: true)
               .vTableGet(buffer, rootOffset, 6, '');
-          final messageParam = const fb.StringReader(asciiOptimization: true)
-              .vTableGet(buffer, rootOffset, 8, '');
+          final descriptionParam =
+              const fb.StringReader(asciiOptimization: true)
+                  .vTableGet(buffer, rootOffset, 10, '');
           final object = WhatsAppNumber(
-              id: idParam, number: numberParam, message: messageParam);
+              id: idParam, number: numberParam, description: descriptionParam);
 
           return object;
         })
@@ -140,7 +141,7 @@ class WhatsAppNumber_ {
   static final number =
       obx.QueryStringProperty<WhatsAppNumber>(_entities[0].properties[1]);
 
-  /// See [WhatsAppNumber.message].
-  static final message =
+  /// See [WhatsAppNumber.description].
+  static final description =
       obx.QueryStringProperty<WhatsAppNumber>(_entities[0].properties[2]);
 }
