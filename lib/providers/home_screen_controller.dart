@@ -12,6 +12,11 @@ class HomeScreenController extends _$HomeScreenController {
     return getIt<WaNumbersRepository>().getAll();
   }
 
+  void addNumber(WhatsAppNumber number) {
+    getIt<WaNumbersRepository>().put(number);
+    state = getIt<WaNumbersRepository>().getAll();
+  }
+
   void deleteNumber(int numberId) {
     getIt<WaNumbersRepository>().remove(numberId);
     state = getIt<WaNumbersRepository>().getAll();
